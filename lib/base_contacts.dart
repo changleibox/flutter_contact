@@ -270,8 +270,7 @@ class ContactService implements ContactsContract {
   /// Updates the [contact] if it has a valid identifier
   @override
   Future<Iterable<Group>> getGroups() async {
-    Iterable groups = await (channel.invokeMethod('getGroups', {})
-        as FutureOr<Iterable<dynamic>>);
+    Iterable groups = (await channel.invokeMethod('getGroups', {})) as Iterable<dynamic>;
     return groups.map((g) => Group.fromMap(g));
   }
 
